@@ -1,0 +1,23 @@
+@startuml
+class Housing {
+-TYPE: String
+-SIZE: int
+}
+
+class Monkey {
+-NAME: String
+-SPECIES: String
+-SEX: String
+-WEIGHT: int
+-FOOD: String
+-AGE: int
+}
+
+class Sanctury {
+-Isolation: Housing[]
+-Enclosure: Housing[]
+-emptyEnclosure: Hashset(Housing)
++getNumIsolation(): int
++getNUMEnclosure(): int
+}
+@enduml

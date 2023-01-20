@@ -1,0 +1,63 @@
+/**
+ * 
+ */
+package weather;
+
+/**
+ * Readings represented as  the air temperature in Celsius, the dew point temperature in Celsius which cannot 
+ * be greater than the air temperature, the non-negative wind speed in miles per hour, and the non-negative 
+ * total rain received in the last 24 hours in millimeters
+ * 
+ * @author ZongyuWu
+ */
+public class StevensonReading implements WeatherReading {
+  
+  private final int temperature;
+  private final int dewPoint;
+  private final int windSpeed;
+  private final int totalRain;
+  
+
+  @Override
+  public int getTemperature() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public int getDewPoint() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public int getWindSpeed() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public int getTotalRain() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public int getRelativeHumidity() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public int getHeatIndex() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public int getWindChill() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+}

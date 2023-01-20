@@ -1,0 +1,55 @@
+/**
+ * 
+ */
+package weather;
+
+/**
+ * Implementing of WeatherReading interface.
+ * 
+ * @author ZongyuWu
+ */
+public class StevensonReading implements WeatherReading {
+
+  @Override
+  public int getTemperature() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public int getDewPoint() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public int getWindSpeed() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public int getTotalRain() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public int getRelativeHumidity() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public int getHeatIndex() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public int getWindChill() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+}

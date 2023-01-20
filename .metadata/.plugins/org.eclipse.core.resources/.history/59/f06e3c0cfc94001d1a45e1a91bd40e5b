@@ -1,0 +1,73 @@
+/**
+ * Test StevensonReading.
+ */
+
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import weather.StevensonReading;
+import weather.WeatherReading;
+
+/**
+ * @author ZongyuWu
+ *
+ */
+public class StevensonReadingTest {
+  
+  /**
+   * Constructs a weather reading in terms of temperature, dew point temperature, wind speed and total rain.
+   *
+   * @param temperature   
+   * @param dewPoint the dew point temperature
+   * @param windSpeed the wind speed
+   * @param totalRain the total rain
+   * @throws IllegalArgumentException if any argument is negative
+   */
+  protected WeatherReading stvs(int temperature, int dewPoint, int windSpeed, int totalRain) {
+    return new StevensonReading(temperature, dewPoint, windSpeed, totalRain);
+  }
+  
+  @Test(expected = IllegalArgumentException.class)
+  public void testInvalidTemperature() {
+    stvs(-274, 1, 1, 1);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testInvalidDewPoint() {
+    stvs(1, 10, 1, 1);
+  }
+  
+  @Test(expected = IllegalArgumentException.class)
+  public void testInvalidWindSpeed() {
+    stvs(1, 1, -1, 1);
+  }
+  
+  @Test(expected = IllegalArgumentException.class)
+  public void testInvalidTotalRain() {
+    stvs(1, 1, 1, -1);
+  }
+  
+  @Test
+  public void testGetTemperature() {
+    assertEquals(4, stvs(4, 3, 2, 1).getTemperature());
+  }
+  
+  @Test
+  public void testGetDewPoint() {
+    assertEquals(3, stvs(4, 3, 2, 1).getDewPoint());
+  }
+  
+  @Test
+  public void testGetWindSpeed() {
+    assertEquals(2, stvs(4, 3, 2, 1).getWindSpeed());
+  }
+  
+  @Test
+  public void testGetTotalRain() {
+    assertEquals(1, stvs(4, 3, 2, 1).getTotalRain());
+  }
+  
+  
+}

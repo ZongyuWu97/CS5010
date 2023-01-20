@@ -1,0 +1,21 @@
+/**
+ * 
+ */
+
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+/**
+ * @author ZongyuWu
+ *
+ */
+public class StevensonReadingTest {
+
+  @Test
+  public void test() {
+    fail("Not yet implemented");
+  }
+
+}

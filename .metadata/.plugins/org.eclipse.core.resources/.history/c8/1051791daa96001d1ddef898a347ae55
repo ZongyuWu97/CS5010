@@ -1,0 +1,33 @@
+@startuml
+class Housing {
+-TYPE: String
+-SIZE: int
+-Housing(type: String, size: int)
+}
+
+class Monkey {
+-NAME: String
+-SPECIES: String
+-SEX: String
+-WEIGHT: int
+-FOOD: String
+-AGE: int
+-Monkey(name: String, species: String, sex: String, weight: int, food: String, age: int)
+}
+
+class Sanctury {
+-Isolation: Housing[]
+-{field} emptyIsolation: Hashset(int)
+-Enclosure: Housing[]
+-{field} emptyEnclosure: Hashset(int)
++Sanctuary(numOfIsolation: int, numOfEnclosure: int)
++increaseIsolation(int)
++increaseEnclosure(int)
++report(): String[]
++lookFor(String): Housing
++shoppingList(): String[]
+}
+
+Sanctury "1" o-- "*" Monkey
+Sanctury "1" o-- "*" Housing
+@enduml

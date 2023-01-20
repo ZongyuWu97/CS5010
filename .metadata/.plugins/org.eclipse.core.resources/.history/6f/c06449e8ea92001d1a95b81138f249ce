@@ -1,0 +1,32 @@
+
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+import org.junit.Before;
+import org.junit.Test;
+
+import person.Person;
+import person.Book;
+
+
+
+public class BookTest {
+	
+	private Book jv;
+	private Person john;
+	
+	@Before
+	public void setUp() {
+		
+		john = new Person("john", "doe", 1989);
+		jv = new Book("aa", john, 100);
+	}
+	
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

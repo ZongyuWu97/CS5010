@@ -1,0 +1,142 @@
+package weather;
+
+/**
+ * Readings represented as  the air temperature in Celsius, the dew point temperature in Celsius 
+ * which cannot be greater than the air temperature, the non-negative wind speed in miles 
+ * per hour, and the non-negative total rain received in the last 24 hours in millimeters.
+
+ * @author ZongyuWu
+ */
+public final class StevensonReading implements WeatherReading {
+  
+  private final double temperature;
+  private final double dewPoint;
+  private final double windSpeed;
+  private final double totalRain;
+  
+  /**
+   * Constructs a weather reading in terms of temperature, dew point temperature, 
+   * wind speed and total rain.
+   *
+   * @param temperature   the air temperature
+   * @param dewPoint the dew point temperature
+   * @param windSpeed the wind speed
+   * @param totalRain the total rain
+   * @throws IllegalArgumentException if any argument is negative
+   */
+  public StevensonReading(double temperature, double dewPoint, double windSpeed, double totalRain) 
+      throws IllegalArgumentException {
+    if ((temperature < -273) || (dewPoint > temperature) || (windSpeed < 0) || (totalRain < 0)) {
+      throw new IllegalArgumentException("Invalid input data.");
+    }
+    
+    this.temperature = temperature;
+    this.dewPoint = dewPoint;
+    this.windSpeed = windSpeed;
+    this.totalRain = totalRain;
+    
+  }
+  
+  @Override
+  public int getTemperature() {
+    return (int) Math.round(this.temperature);
+  }
+
+  @Override
+  public int getDewPoint() {
+    return (int) Math.round(this.dewPoint);
+  }
+
+  @Override
+  public int getWindSpeed() {
+    return (int) Math.round(this.windSpeed);
+  }
+
+  @Override
+  public int getTotalRain() {
+    return (int) Math.round(this.totalRain);
+  }
+  
+  /**
+   * Compute relative humility in double.
+   * 
+   * @return a double
+   */
+  private double humility() {
+    double avp = 6.11 * 10 * 7.5 * this.dewPoint / (237.3 + this.dewPoint);
+    double svp = 6.11 * 10 * 7.5 * this.temperature / (237.3 + this.temperature);
+    
+    return avp / svp * 100;
+  }
+  
+  @Override
+  public int getRelativeHumidity() {
+    return (int) Math.round(humility());
+  }
+
+  @Override
+  public int getHeatIndex() {
+    double t = this.temperature;
+
+    double r = humility();
+
+    double c1 = -8.78469475556;
+    double c2 = 1.61139411;
+    double c3 = 2.33854883889;
+    double c4 = -0.14611605;
+    double c5 = -0.012308094;
+    double c6 = -0.0164248277778;
+    double c7 = 0.002211732;
+    double c8 = 0.00072546;
+    double c9 = -0.000003582;
+    
+    double heatIndex = c1 + c2 * t + c3 * r + c4 * t * r + c5 * t * t + c6 * r * r
+        + c7 * t * t * r + c8 * t * r * r + c9 * t * t * r * r;
+    
+    return (int) Math.round(heatIndex);
+  }
+
+  @Override
+  public int getWindChill() {   
+    double t = 1.8 * this.temperature + 32.0;
+    double v = this.windSpeed;
+    double windChill = 35.74 + 0.6215 * t - 35.75 * Math.pow(v, 0.16)
+        + 0.4275 * t * Math.pow(v, 0.16);
+    windChill = (windChill - 32) / 1.8;
+    
+    return (int) Math.round(windChill);
+  }
+  
+  @Override
+  public String toString() {
+    String s = String.format("Reading: T = %d, D = %d, v = %d, rain = %d", 
+        this.getTemperature(), this.getDewPoint(), this.getWindSpeed(), this.getTotalRain());
+    return s;
+  }
+  
+  @Override
+  public int hashCode() {
+    int hash = 0;
+    
+    hash += Double.hashCode(this.temperature);
+    hash += Double.hashCode(this.dewPoint);
+    hash += Double.hashCode(this.windSpeed);
+    hash += Double.hashCode(this.totalRain);
+    
+    return hash;
+  }
+  
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+      
+    if (!(o instanceof StevensonReading)) {
+      return false;
+    }
+    
+    return this.hashCode() == o.hashCode();
+  }
+
+}

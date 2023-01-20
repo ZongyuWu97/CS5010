@@ -1,0 +1,46 @@
+
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Before;
+import org.junit.Test;
+import person.Book;
+import person.Person;
+
+
+
+/**
+ * A JUnit test class for the Book class.
+ */
+public class BookTest {
+
+  private Person john;
+  private Book jv;
+  
+  /**
+   * Set up for the test.
+   */
+  @Before
+  public void setUp() {
+
+    john = new Person("john", "doe", 1989);
+    jv = new Book("aa", john, 100f);
+  }
+
+  @Test
+  public void testTitle() {
+    assertEquals("aa", jv.getTitle());
+
+  }
+
+  @Test
+  public void testPrice() {
+    assertEquals(100f, jv.getPrice(), 0f);
+  }
+
+  @Test
+  public void testAuthor() {
+    assertEquals(john, jv.getAuthor());
+  }
+
+}

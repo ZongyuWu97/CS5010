@@ -1,0 +1,84 @@
+/**
+ * 
+ */
+package weather;
+
+/**
+ * Readings represented as  the air temperature in Celsius, the dew point temperature in Celsius which cannot 
+ * be greater than the air temperature, the non-negative wind speed in miles per hour, and the non-negative 
+ * total rain received in the last 24 hours in millimeters.
+ * 
+ * @author ZongyuWu
+ */
+public class StevensonReading implements WeatherReading {
+  
+  private final int temperature;
+  private final int dewPoint;
+  private final int windSpeed;
+  private final int totalRain;
+  
+  /**
+   * Constructs a weather reading in terms of temperature, dew point temperature, wind speed and total rain.
+   *
+   * @param temperature   
+   * @param dewPoint the dew point temperature
+   * @param windSpeed the wind speed
+   * @param totalRain the total rain
+   * @throws IllegalArgumentException if any argument is negative
+   */
+  public StevensonReading(int temperature, int dewPoint, int windSpeed, int totalRain) 
+      throws IllegalArgumentException {
+    if ((temperature < -273) || (dewPoint > temperature) || (windSpeed < 0) || (totalRain < 0)) {
+      throw new IllegalArgumentException("Invalid input data.");
+    }
+    
+    this.temperature = temperature;
+    this.dewPoint = dewPoint;
+    this.windSpeed = windSpeed;
+    this.totalRain = totalRain;
+    
+  }
+  
+  @Override
+  public int getTemperature() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public int getDewPoint() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public int getWindSpeed() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public int getTotalRain() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public int getRelativeHumidity() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public int getHeatIndex() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public int getWindChill() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+}

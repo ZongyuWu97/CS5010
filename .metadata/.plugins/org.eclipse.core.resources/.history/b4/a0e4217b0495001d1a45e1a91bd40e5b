@@ -1,0 +1,125 @@
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+import weather.StevensonReading;
+import weather.WeatherReading;
+
+/**
+ * Class for testing the StevensonReading class.
+ */
+public class StevensonReadingTest {
+  
+  /**
+   * Constructs a weather reading in terms of temperature, dew point temperature, wind speed 
+   * and total rain.
+   *
+   * @param temperature the air temperature.
+   * @param dewPoint the dew point temperature
+   * @param windSpeed the wind speed
+   * @param totalRain the total rain
+   * @throws IllegalArgumentException if any argument is negative
+   */
+  protected WeatherReading stvs(int temperature, int dewPoint, int windSpeed, int totalRain) {
+    return new StevensonReading(temperature, dewPoint, windSpeed, totalRain);
+  }
+  
+  @Test(expected = IllegalArgumentException.class)
+  public void testInvalidTemperature() {
+    stvs(-274, 1, 1, 1);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testInvalidDewPoint() {
+    stvs(1, 10, 1, 1);
+  }
+  
+  @Test(expected = IllegalArgumentException.class)
+  public void testInvalidWindSpeed() {
+    stvs(1, 1, -1, 1);
+  }
+  
+  @Test(expected = IllegalArgumentException.class)
+  public void testInvalidTotalRain() {
+    stvs(1, 1, 1, -1);
+  }
+  
+  @Test
+  public void testGetTemperature() {
+    assertEquals(4, stvs(4, 3, 2, 1).getTemperature());
+  }
+  
+  @Test
+  public void testGetDewPoint() {
+    assertEquals(3, stvs(4, 3, 2, 1).getDewPoint());
+  }
+  
+  @Test
+  public void testGetWindSpeed() {
+    assertEquals(2, stvs(4, 3, 2, 1).getWindSpeed());
+  }
+  
+  @Test
+  public void testGetTotalRain() {
+    assertEquals(1, stvs(4, 3, 2, 1).getTotalRain());
+  }
+  
+  @Test
+  public void testGetRelativeHumidity() {
+    int temperature = 10;
+    int dewPoint = 5;
+    int windSpeed = 50;
+    int totalRain = 30;
+    
+    double avp = 6.11 * 10 * 7.5 * dewPoint / (237.3 + dewPoint);
+    double svp = 6.11 * 10 * 7.5 * temperature / (237.3 + temperature);
+    
+    assertEquals(Math.round(avp / svp), stvs(temperature, 
+        dewPoint, windSpeed, totalRain).getRelativeHumidity());
+  }
+  
+  @Test
+  public void testGetHeatIndex() {
+    int temperature = 10;
+    int dewPoint = 5;
+    int windSpeed = 50;
+    int totalRain = 30;
+    
+    WeatherReading stReading = stvs(temperature, dewPoint, windSpeed, totalRain);
+    
+    int t = temperature;
+    double r = stReading.getRelativeHumidity();
+
+    double c1 = -8.78469475556;
+    double c2 = 1.61139411;
+    double c3 = 2.33854883889;
+    double c4 = -0.14611605;
+    double c5 = -0.012308094;
+    double c6 = -0.0164248277778;
+    double c7 = 0.002211732;
+    double c8 = 0.00072546;
+    double c9 = -0.000003582;
+    
+    double heatIndex = c1 + c2 * t + c3 * r + c4 * t * r + c5 * Math.pow(t, 2) + c6 * Math.pow(r, 2
+        ) + c7 * Math.pow(t, 2) * r + c8 * Math.pow(r, 2) + c9 * Math.pow(t * r, 2);
+    
+    assertEquals(Math.round(heatIndex), stReading.getHeatIndex());
+  }
+  
+  @Test
+  public void testGetWindChil() {
+    int temperature = 10;
+    int dewPoint = 5;
+    int windSpeed = 50;
+    int totalRain = 30;
+    
+    WeatherReading stReading = stvs(temperature, dewPoint, windSpeed, totalRain);
+    
+    double windChill = 35.74 + 0.6215 * temperature - 35.75 * Math.pow(windSpeed, 0.16)
+        + 0.4275 * temperature * Math.pow(windSpeed, 0.16);
+    
+    assertEquals(Math.round(windChill), stReading.getWindChill());
+  }
+  
+  
+}

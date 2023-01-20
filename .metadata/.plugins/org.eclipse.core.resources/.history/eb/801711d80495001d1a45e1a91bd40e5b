@@ -1,0 +1,99 @@
+/**
+ * 
+ */
+package weather;
+
+/**
+ * Readings represented as  the air temperature in Celsius, the dew point temperature in Celsius which cannot 
+ * be greater than the air temperature, the non-negative wind speed in miles per hour, and the non-negative 
+ * total rain received in the last 24 hours in millimeters.
+ * 
+ * @author ZongyuWu
+ */
+public class StevensonReading implements WeatherReading {
+  
+  private final int temperature;
+  private final int dewPoint;
+  private final int windSpeed;
+  private final int totalRain;
+  
+  /**
+   * Constructs a weather reading in terms of temperature, dew point temperature, wind speed and total rain.
+   *
+   * @param temperature   
+   * @param dewPoint the dew point temperature
+   * @param windSpeed the wind speed
+   * @param totalRain the total rain
+   * @throws IllegalArgumentException if any argument is negative
+   */
+  public StevensonReading(int temperature, int dewPoint, int windSpeed, int totalRain) 
+      throws IllegalArgumentException {
+    if ((temperature < -273) || (dewPoint > temperature) || (windSpeed < 0) || (totalRain < 0)) {
+      throw new IllegalArgumentException("Invalid input data.");
+    }
+    
+    this.temperature = temperature;
+    this.dewPoint = dewPoint;
+    this.windSpeed = windSpeed;
+    this.totalRain = totalRain;
+    
+  }
+  
+  @Override
+  public int getTemperature() {
+    return this.temperature;
+  }
+
+  @Override
+  public int getDewPoint() {
+    return this.dewPoint;
+  }
+
+  @Override
+  public int getWindSpeed() {
+    return this.windSpeed;
+  }
+
+  @Override
+  public int getTotalRain() {
+    return this.totalRain;
+  }
+
+  @Override
+  public int getRelativeHumidity() {
+    double avp = 6.11 * 10 * 7.5 * dewPoint / (237.3 + dewPoint);
+    double svp = 6.11 * 10 * 7.5 * temperature / (237.3 + temperature);
+    
+    return (int)Math.round(avp / svp);
+  }
+
+  @Override
+  public int getHeatIndex() {
+    int t = temperature;
+    double r = this.getRelativeHumidity();
+
+    double c1 = -8.78469475556;
+    double c2 = 1.61139411;
+    double c3 = 2.33854883889;
+    double c4 = -0.14611605;
+    double c5 = -0.012308094;
+    double c6 = -0.0164248277778;
+    double c7 = 0.002211732;
+    double c8 = 0.00072546;
+    double c9 = -0.000003582;
+    
+    double heatIndex = c1 + c2 * t + c3 * r + c4 * t * r + c5 * Math.pow(t, 2) + c6 * Math.pow(r, 2
+        ) + c7 * Math.pow(t, 2) * r + c8 * Math.pow(r, 2) + c9 * Math.pow(t * r, 2);
+    
+    return (int) Math.round(heatIndex);
+  }
+
+  @Override
+  public int getWindChill() {    
+    double windChill = 35.74 + 0.6215 * temperature - 35.75 * Math.pow(windSpeed, 0.16)
+        + 0.4275 * temperature * Math.pow(windSpeed, 0.16);
+    
+    return (int) Math.round(windChill);
+  }
+
+}
