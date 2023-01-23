@@ -20,14 +20,14 @@ public interface Transmission {
 
   /**
    * Gets the speed of this Transmission.
-   * 
+
    * @return the speed
    */
   int getSpeed();
 
   /**
    * Gets the gear of this Transmission.
-   * 
+
    * @return the gear
    */
   int getGear();
