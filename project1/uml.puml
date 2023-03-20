@@ -19,7 +19,7 @@ class Monkey {
 +Monkey(name: String, species: String, sex: String, weight: int, age: int, food: String)
 }
 
-class Sanctury {
+class Sanctuary {
 -Isolation: Housing[]
 -{field} emptyIsolation: Hashset(int)
 -Enclosure: Housing[]

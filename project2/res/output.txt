@@ -1,0 +1,103 @@
+This is a battle between two players. They will get armed and attack each other until one dies or it's a tie. If it's not a tie, the battle information will be generated for each round and you can choose to start again between these two players in the end by typing y/n.
+
+A's total ability to be assigned: 21
+
+B's total ability to be assigned: 23
+
+Players generated!
+A's basic ability is
+Strength: 11, Constitution: 7, Dexterity: 1, Charisma: 2
+
+B's basic ability is
+Strength: 6, Constitution: 7, Dexterity: 2, Charisma: 8
+
+Players armed!
+
+A's description is
+
+This player is A.
+The base ability values of this player are:
+Strength: 11
+Constitution: 7
+Dexterity: 1
+Charisma: 2
+
+His/Her headwear adds constitution by 7
+His/Her potion adds abilities by 0, 2, 0, 0
+His/Her potion adds abilities by 0, -5, 0, 0
+His/Her potion adds abilities by 2, 0, 0, 0
+His/Her potion adds abilities by 0, 3, 0, 0
+His/Her potion adds abilities by 0, 8, 0, 0
+His/Her potion adds abilities by 0, 8, 0, 0
+His/Her potion adds abilities by 1, 0, 0, 0
+His/Her potion adds abilities by 0, 0, 0, 8
+His/Her belt adds abilities by -5, 0, 0, -5
+His/Her belt adds abilities by 0, 0, -8, -5
+His/Her belt adds abilities by 0, 0, -3, -7
+His/Her belt adds abilities by 10, 0, 0, 1
+His/Her belt adds abilities by 5, 0, 0, 9
+His/Her belt adds abilities by 0, 6, 0, 6
+
+The final ability values of this player are:
+Strength: 24
+Constitution: 36
+Dexterity: -10
+Charisma: 9
+
+His/Her weapon is Axes with attack in range 6, 10.
+The ability requirement of this weapon is 0.
+
+B's description is
+
+This player is B.
+The base ability values of this player are:
+Strength: 6
+Constitution: 7
+Dexterity: 2
+Charisma: 8
+
+His/Her headwear adds constitution by 6
+His/Her potion adds abilities by 1, 0, 0, 0
+His/Her potion adds abilities by 0, 0, 3, 0
+His/Her potion adds abilities by -7, 0, 0, 0
+His/Her potion adds abilities by 0, 0, 0, 3
+His/Her potion adds abilities by 0, 6, 0, 0
+His/Her potion adds abilities by 0, 0, 0, -2
+His/Her belt adds abilities by -5, -4, 0, 0
+His/Her belt adds abilities by 0, 0, 1, 9
+His/Her belt adds abilities by 0, 0, 4, 10
+
+The final ability values of this player are:
+Strength: -5
+Constitution: 15
+Dexterity: 10
+Charisma: 28
+
+His/Her weapon is Katanas with attack in range 4, 6.
+The ability requirement of this weapon is 0.
+
+Battle start with B!
+
+A's total health is 21.
+B's total health is 23.
+
+B's turn!
+Attack succeed! -28 damage received by the opponent. A's remain health is 21.
+
+Attack succeed! -28 damage received by the opponent. A's remain health is 21.
+
+A's turn!
+Attack succeed! 24 damage received by the opponent. B's remain health is 2.
+
+B's turn!
+Attack failed!
+
+Attack succeed! -29 damage received by the opponent. A's remain health is 21.
+
+A's turn!
+Attack succeed! 25 damage received by the opponent. B's remain health is -19.
+
+A wins! Remain health is 21
+
+Type y to rematch or n to exit.
+

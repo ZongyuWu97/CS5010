@@ -1,4 +1,6 @@
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 import transmission.AutomaticTransmission;
@@ -152,4 +154,29 @@ public class AutomaticTransmissionTest {
     
     assertEquals(s, temp.toString());
   }
+  
+  @Test
+  public void testHashCode() {
+    Transmission temp = auto(10, 40, 50, 60, 70); 
+    assertEquals(1040506070, temp.hashCode());
+  }
+  
+  @Test
+  public void testEquals1() {
+    Transmission temp = auto(10, 40, 50, 60, 70); 
+    assertTrue(temp.equals(auto(10, 40, 50, 60, 70)));
+  }
+  
+  @Test
+  public void testEquals2() {
+    Transmission temp = auto(10, 40, 50, 60, 70); 
+    assertFalse(temp.equals(auto(20, 40, 50, 60, 70)));
+  }
+
+  @Test
+  public void testEquals3() {
+    Transmission temp = auto(10, 40, 50, 60, 70); 
+    assertTrue(temp.equals(temp));
+  }
+
 }

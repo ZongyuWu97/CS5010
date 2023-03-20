@@ -85,5 +85,25 @@ public class AutomaticTransmission implements Transmission {
     return String.format("Transmission (speed = %d, gear = %d)", this.getSpeed(), this.getGear());
   }
   
+  @Override
+  public int hashCode() {
+    String s = Integer.toString(this.thre1) + Integer.toString(this.thre2) 
+        + Integer.toString(this.thre3) + Integer.toString(this.thre4) 
+        + Integer.toString(this.thre5);
+    return Integer.parseInt(s);
+  }
+  
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+      
+    if (!(o instanceof AutomaticTransmission)) {
+      return false;
+    }
+    
+    return this.hashCode() == o.hashCode();
+  }
 
 }
