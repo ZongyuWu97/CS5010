@@ -1,0 +1,203 @@
+Generate dungeon.
+Is this a wrapping dungeon?
+Enter wrapping or non-wrapping:
+Enter a positive number of rows:
+Enter a positive number of rows:
+Enter a non-negative number of interconnectivity.
+5
+A non-wrapping dungeon of 7 rows and 7 columns has been created.
+The start is at row 0, col 5.
+The end is at row 6, col 0.
+
+Degree of each location is:
+
+ 2  3  3  3  3  3  2 
+ 3  3  2  2  2  2  2 
+ 2  2  2  2  2  2  2 
+ 2  2  2  2  2  2  2 
+ 2  2  2  2  2  2  2 
+ 2  2  2  2  2  2  2 
+ 1  1  1  1  1  1  1 
+
+This location is row 0, column 5.
+The current location has
+0 Diamond
+0 Ruby
+2 Sapphire
+This location is connected to the west.
+This location is connected to the south.
+This location is connected to the east.
+Player status after picking treasure at current location:
+The player has collected:
+0 Diamond
+0 Ruby
+2 Sapphire
+Please enter north, west, south, or east from the available locations
+Player moved to new location.
+
+This location is row 0, column 4.
+The current location has
+1 Diamond
+1 Ruby
+1 Sapphire
+This location is connected to the west.
+This location is connected to the south.
+This location is connected to the east.
+Player status after picking treasure at current location:
+The player has collected:
+1 Diamond
+1 Ruby
+3 Sapphire
+Please enter north, west, south, or east from the available locations
+Player moved to new location.
+
+This location is row 0, column 3.
+The current location has
+1 Diamond
+0 Ruby
+0 Sapphire
+This location is connected to the west.
+This location is connected to the south.
+This location is connected to the east.
+Player status after picking treasure at current location:
+The player has collected:
+2 Diamond
+1 Ruby
+3 Sapphire
+Please enter north, west, south, or east from the available locations
+Player moved to new location.
+
+This location is row 0, column 2.
+The current location has
+1 Diamond
+1 Ruby
+0 Sapphire
+This location is connected to the west.
+This location is connected to the south.
+This location is connected to the east.
+Player status after picking treasure at current location:
+The player has collected:
+3 Diamond
+2 Ruby
+3 Sapphire
+Please enter north, west, south, or east from the available locations
+Player moved to new location.
+
+This location is row 0, column 1.
+The current location has
+1 Diamond
+0 Ruby
+1 Sapphire
+This location is connected to the west.
+This location is connected to the south.
+This location is connected to the east.
+Player status after picking treasure at current location:
+The player has collected:
+4 Diamond
+2 Ruby
+4 Sapphire
+Please enter north, west, south, or east from the available locations
+Player moved to new location.
+
+This location is row 0, column 0.
+The current location has
+0 Diamond
+0 Ruby
+0 Sapphire
+This location is connected to the south.
+This location is connected to the east.
+Player status after picking treasure at current location:
+The player has collected:
+4 Diamond
+2 Ruby
+4 Sapphire
+Please enter north, west, south, or east from the available locations
+Player moved to new location.
+
+This location is row 1, column 0.
+The current location has
+1 Diamond
+0 Ruby
+0 Sapphire
+This location is connected to the north.
+This location is connected to the south.
+This location is connected to the east.
+Player status after picking treasure at current location:
+The player has collected:
+5 Diamond
+2 Ruby
+4 Sapphire
+Please enter north, west, south, or east from the available locations
+Player moved to new location.
+
+This location is row 2, column 0.
+The current location has
+0 Diamond
+0 Ruby
+0 Sapphire
+This location is connected to the north.
+This location is connected to the south.
+Player status after picking treasure at current location:
+The player has collected:
+5 Diamond
+2 Ruby
+4 Sapphire
+Please enter north, west, south, or east from the available locations
+Player moved to new location.
+
+This location is row 3, column 0.
+The current location has
+0 Diamond
+0 Ruby
+0 Sapphire
+This location is connected to the north.
+This location is connected to the south.
+Player status after picking treasure at current location:
+The player has collected:
+5 Diamond
+2 Ruby
+4 Sapphire
+Please enter north, west, south, or east from the available locations
+Player moved to new location.
+
+This location is row 4, column 0.
+The current location has
+0 Diamond
+0 Ruby
+0 Sapphire
+This location is connected to the north.
+This location is connected to the south.
+Player status after picking treasure at current location:
+The player has collected:
+5 Diamond
+2 Ruby
+4 Sapphire
+Please enter north, west, south, or east from the available locations
+Player moved to new location.
+
+This location is row 5, column 0.
+The current location has
+0 Diamond
+0 Ruby
+0 Sapphire
+This location is connected to the north.
+This location is connected to the south.
+Player status after picking treasure at current location:
+The player has collected:
+5 Diamond
+2 Ruby
+4 Sapphire
+Please enter north, west, south, or east from the available locations
+Player moved to new location.
+
+Player has reached the end.
+This location is row 6, column 0.
+The current location has
+0 Diamond
+0 Ruby
+0 Sapphire
+This location is connected to the north.
+The player has collected:
+5 Diamond
+2 Ruby
+4 Sapphire

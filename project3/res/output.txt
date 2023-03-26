@@ -1,0 +1,49 @@
+Generate dungeon.
+Is this a wrapping dungeon?
+Enter wrapping or non-wrapping:
+Enter a positive number of rows:
+Enter a positive number of rows:
+Enter a non-negative number of interconnectivity.
+6
+A wrapping dungeon of 7 rows and 7 columns has been created.
+The start is at row 0, col 6.
+The end is at row 5, col 2.
+
+Degree of each location is:
+
+ 4  4  4  4  4  3  3 
+ 2  2  2  2  2  2  2 
+ 2  2  2  2  2  2  2 
+ 2  2  2  2  2  2  2 
+ 2  2  2  2  2  2  2 
+ 1  1  1  1  1  1  1 
+ 1  1  1  1  1  1  1 
+
+This location is row 0, column 6.
+The current location has
+1 Diamond
+1 Ruby
+0 Sapphire
+This location is connected to the north.
+This location is connected to the south.
+This location is connected to the east.
+Player status after picking treasure at current location:
+The player has collected:
+1 Diamond
+1 Ruby
+0 Sapphire
+Please enter north, west, south, or east from the available locations
+Player moved to new location.
+
+This location is row 6, column 6.
+The current location has
+0 Diamond
+0 Ruby
+0 Sapphire
+This location is connected to the south.
+Player status after picking treasure at current location:
+The player has collected:
+1 Diamond
+1 Ruby
+0 Sapphire
+Please enter north, west, south, or east from the available locations
