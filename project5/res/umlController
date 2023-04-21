@@ -1,0 +1,9 @@
+@startuml
+interface DungeonController {
+	move(direction: String): void
+	pick(): void
+	shoot(direction: String, distance: int): void
+	printInformation(): String
+}
+
+@enduml

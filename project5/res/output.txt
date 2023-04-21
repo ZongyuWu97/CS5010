@@ -1,0 +1,21 @@
+Generate dungeon.
+Is this a wrapping dungeon?
+Enter wrapping or non-wrapping:
+Enter a positive number of rows:
+Enter a positive number of rows:
+Enter a non-negative number of interconnectivity.
+A wrapping dungeon of 7 rows and 7 columns has been created.
+The start is at row 6, col 6.
+The end is at row 5, col 5.
+
+Degree of each location is:
+
+ 4  4  4  4  4  3  3 
+ 2  2  2  2  2  2  2 
+ 2  2  2  2  2  2  2 
+ 2  2  2  2  2  2  2 
+ 2  2  2  2  2  2  2 
+ 1  1  1  1  1  1  1 
+ 1  1  1  1  1  1  1 
+
+Enter q to quit, other to continue.

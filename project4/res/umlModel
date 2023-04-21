@@ -1,0 +1,186 @@
+@startuml
+class PlayerImpl [[java:dungeon.PlayerImpl]] {
+	-treasures: HashMap<Treasure,Integer>
+	+PlayerImpl()
+	+move(location: Location): void
+	+getTreasures(): HashMap<Treasure,Integer>
+	+addTreasure(treasure: Treasure, num: int): void
+}
+class Location {
+}
+PlayerImpl --> "1" Location : location
+class Location {
+}
+PlayerImpl --> "1" Location : getLocation()
+interface Player {
+}
+Player <|.. PlayerImpl
+enum Treasure [[java:dungeon.Treasure]] {
+	Diamond
+	Ruby
+	Sapphire
+}
+class Cave [[java:dungeon.Cave]] {
+	+Cave(row: int, col: int, x: int, neighbors: HashSet<Integer>)
+	+addTreasure(): void
+}
+class AbstractLocation {
+}
+AbstractLocation <|-- Cave
+class DungeonModelImpl [[java:dungeon.DungeonModelImpl]] {
+	-locations: HashMap<Integer,Location>
+	-caves: HashMap<Integer,Location>
+	-edges: HashMap<Integer,HashSet<Integer>>
+	-row: int
+	-col: int
+	-interconnectivity: int
+	+create(wrap: String, row: int, col: int, interconnectivity: int): String
+	+setStartEnd(): void
+	+setStartEnd(start: int, end: int): void
+	+addTreasure(percentage: int): void
+	+addTreasure(percentage: int, noRandom: boolean): void
+	+addArrow(percentage: int): void
+	+addArrow(percentage: int, noRandom: boolean): void
+	+enter(): void
+	+playerDescription(): String
+	+playerLocation(): String
+	+move(location: Location): void
+	+pick(): void
+	-generatePotentialEdges(wrap: String, row: int, col: int): HashMap<Integer,HashSet<Integer>>
+	-find(unionFind: HashMap<Integer,Integer>, x: int): int
+	-union(unionFind: HashMap<Integer,Integer>, x: int, y: int): void
+	-generateLocations(): void
+	-kruskal(potentialEdges: HashMap<Integer,HashSet<Integer>>, restEdges: HashMap<Integer,HashSet<Integer>>, unionFind: HashMap<Integer,Integer>, interconnectivity: int): void
+	-getTooClose(tooClose: HashSet<Integer>, edges: HashMap<Integer,HashSet<Integer>>): void
+	+getRow(): int
+	+getColumn(): int
+	+getInterconnectivity(): int
+	+getNextLocation(currLocation: Location, direction: String): Location
+}
+class Player {
+}
+DungeonModelImpl --> "1" Player : player
+class Location {
+}
+DungeonModelImpl --> "1" Location : start
+class Location {
+}
+DungeonModelImpl --> "1" Location : end
+class Location {
+}
+DungeonModelImpl --> "1" Location : getStart()
+class Location {
+}
+DungeonModelImpl --> "1" Location : getEnd()
+class Location {
+}
+DungeonModelImpl --> "1" Location : getLocation()
+class Player {
+}
+DungeonModelImpl --> "1" Player : getPlayer()
+interface DungeonModel {
+}
+DungeonModel <|.. DungeonModelImpl
+interface Location [[java:dungeon.Location]] {
+	getNorth(): boolean
+	getWest(): boolean
+	getSouth(): boolean
+	getEast(): boolean
+	getIndex(): int
+	addTreasure(): void
+	getTreasures(): HashMap<Treasure,Integer>
+	getRow(): int
+	getColumn(): int
+	getNextLocation(direction: String): int
+	hasMonster(): boolean
+	monsterInjured(): boolean
+	getArrow(): boolean
+}
+interface Player [[java:dungeon.Player]] {
+	move(location: Location): void
+	getTreasures(): HashMap<Treasure,Integer>
+	addTreasure(treasure: Treasure, num: int): void
+	addArrow(): void
+}
+class Location {
+}
+Player --> "1" Location : getLocation()
+class MyRandom [[java:dungeon.MyRandom]] {
+	-random: Random
+	-randOrNot: boolean
+	+MyRandom(randOrNot: boolean)
+	+nextInt(max: int): int
+}
+interface DungeonModel [[java:dungeon.DungeonModel]] {
+	create(wrap: String, row: int, col: int, interconnectivity: int): String
+	setStartEnd(): void
+	setStartEnd(start: int, end: int): void
+	addTreasure(percentage: int): void
+	addTreasure(percentage: int, noRandom: boolean): void
+	enter(): void
+	playerDescription(): String
+	playerLocation(): String
+	move(location: Location): void
+	pick(): void
+	getRow(): int
+	getColumn(): int
+	getInterconnectivity(): int
+	getNextLocation(location: Location, direction: String): Location
+}
+class Location {
+}
+DungeonModel --> "1" Location : getStart()
+class Location {
+}
+DungeonModel --> "1" Location : getEnd()
+class Location {
+}
+DungeonModel --> "1" Location : getLocation()
+class Player {
+}
+DungeonModel --> "1" Player : getPlayer()
+abstract class AbstractLocation [[java:dungeon.AbstractLocation]] {
+	#treasures: HashMap<Treasure,Integer>
+	-north: boolean
+	-west: boolean
+	-south: boolean
+	-east: boolean
+	-index: int
+	-row: int
+	-col: int
+	-directions: HashMap<String,Integer>
+	+AbstractLocation(row: int, col: int, x: int, neighbors: HashSet<Integer>)
+	+getNorth(): boolean
+	+getWest(): boolean
+	+getSouth(): boolean
+	+getEast(): boolean
+	+getIndex(): int
+	+getTreasures(): HashMap<Treasure,Integer>
+	+getRow(): int
+	+getColumn(): int
+	+equals(o: Object): boolean
+	+getNextLocation(direction: String): int
+	+hashCode(): int
+}
+interface Location {
+}
+Location <|.. AbstractLocation
+class Tunnel [[java:dungeon.Tunnel]] {
+	+Tunnel(row: int, col: int, x: int, neighbors: HashSet<Integer>)
+	+addTreasure(): void
+}
+class AbstractLocation {
+}
+AbstractLocation <|-- Tunnel
+
+interface DungeonController {
+	move(direction: String): void
+	pick(): void
+	shoot(direction: String, distance: int): void
+	printInformation(): String
+}
+
+class DungeonControllerImpl implements DungeonController
+
+DungeonControllerImpl --> DungeonModelImpl
+@enduml

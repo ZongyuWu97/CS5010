@@ -1,0 +1,122 @@
+Generate dungeon.
+Is this a wrapping dungeon?
+Enter wrapping or non-wrapping:
+non-wrapping
+Enter a positive number of rows:
+1
+Enter a positive number of rows:
+7
+Enter a non-negative number of interconnectivity.
+0
+A non-wrapping dungeon of 1 rows and 7 columns has been created.
+The start is at row 0, col 0.
+The end is at row 0, col 6.
+
+Degree of each location is:
+
+ 1  2  2  2  2  2  1 
+
+Enter q to quit, other to continue.
+n
+This location is row 0, column 0.
+The current location has
+0 Diamond 1 Ruby 0 Sapphire 
+This location has an arrow.
+This location is connected to the east.
+No smell is detected.
+The player has collected:
+0 Diamond 1 Ruby 0 Sapphire and 4 arrows.
+Want to shoot? y/n
+n
+Please enter north, west, south, or east from the available locations
+east
+Player moved to new location.
+
+Enter q to quit, other to continue.
+n
+This location is row 0, column 1.
+The current location has
+0 Diamond 0 Ruby 0 Sapphire 
+This location has an arrow.
+This location is connected to the west east.
+No smell is detected.
+The player has collected:
+0 Diamond 1 Ruby 0 Sapphire and 5 arrows.
+Want to shoot? y/n
+n
+Please enter north, west, south, or east from the available locations
+east
+Player moved to new location.
+
+Enter q to quit, other to continue.
+n
+This location is row 0, column 2.
+The current location has
+0 Diamond 0 Ruby 0 Sapphire 
+This location has an arrow.
+This location is connected to the west east.
+No smell is detected.
+The player has collected:
+0 Diamond 1 Ruby 0 Sapphire and 6 arrows.
+Want to shoot? y/n
+n
+Please enter north, west, south, or east from the available locations
+east
+Player moved to new location.
+
+Enter q to quit, other to continue.
+n
+This location is row 0, column 3.
+The current location has
+0 Diamond 0 Ruby 0 Sapphire 
+This location has no arrow.
+This location is connected to the west east.
+No smell is detected.
+The player has collected:
+0 Diamond 1 Ruby 0 Sapphire and 6 arrows.
+Want to shoot? y/n
+n
+Please enter north, west, south, or east from the available locations
+east
+Player moved to new location.
+
+Enter q to quit, other to continue.
+n
+This location is row 0, column 4.
+The current location has
+0 Diamond 0 Ruby 0 Sapphire 
+This location has no arrow.
+This location is connected to the west east.
+Less smell is detected.
+The player has collected:
+0 Diamond 1 Ruby 0 Sapphire and 6 arrows.
+Want to shoot? y/n
+y
+Please enter direction from north, west, south, or east, and positive distance.
+east 1
+No monster here.
+Want to shoot? y/n
+n
+Please enter north, west, south, or east from the available locations
+east
+Player moved to new location.
+
+Enter q to quit, other to continue.
+n
+This location is row 0, column 5.
+The current location has
+0 Diamond 0 Ruby 0 Sapphire 
+This location has no arrow.
+This location is connected to the west east.
+Strong smell is detected.
+The player has collected:
+0 Diamond 1 Ruby 0 Sapphire and 5 arrows.
+Want to shoot? y/n
+n
+Please enter north, west, south, or east from the available locations
+east
+Player moved to new location.
+
+Player is dead.
+The player has collected:
+0 Diamond 1 Ruby 0 Sapphire and 5 arrows.
