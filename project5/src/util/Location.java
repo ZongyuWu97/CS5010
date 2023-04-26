@@ -131,7 +131,7 @@ public interface Location {
   /**
    * Get the monsters at this location.
 
-   * @return
+   * @return List of health
    */
   public List<Monster> getMonsters();
   
@@ -146,4 +146,19 @@ public interface Location {
    * @return visited or not
    */
   public boolean isVisited();
+  
+  /**
+   * If the player is here.
+
+   * @return player is here
+   */
+  public boolean isHere();
+
+  /**
+   * Set player here.
+
+   * @param here or not
+   */
+  public void setPlayerHere(boolean here);
+  
 }

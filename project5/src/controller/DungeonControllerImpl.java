@@ -2,7 +2,6 @@ package controller;
 
 
 import javax.swing.JOptionPane;
-
 import model.DungeonModel;
 import util.Location;
 import util.Monster;
@@ -28,46 +27,51 @@ public class DungeonControllerImpl implements DungeonController {
    * Constructor of the controller.
 
    * @param model model
-   * @param s input
-   * @param ps output
+   * @param view view
    */
   public DungeonControllerImpl(DungeonModel model, DungeonView view) {
     this.model = model;
     this.view = view;
     this.random = new MyRandom(true);
   }
+  
+  @Override
+  public void playGame() {
+    this.view.addClickListener(this);
+    this.view.refresh();
+  }
 
   @Override
-  public void startGame(String wrap, int row, int col,int interconnectivity, int percentage, int numMonster) {
-    System.out.println("here");
+  public void startGame(String wrap, int row, int col,
+      int interconnectivity, int percentage, int numMonster) {
+    this.view.addClickListener(this);
 
     // Generate dungeon.
     model.create(wrap, row, col, interconnectivity);
     model.setStartEnd();
-    System.out.println("here1");
 
     prevLocations = model.getBoard();
     prevStart = model.getStart();
     prevEnd = model.getEnd();
-    System.out.println("here2");
 
     // Add treasure to specified percent of the caves.
     model.addTreasure(percentage);
     model.addMonster(numMonster);
-    System.out.println("here3");
 
     // Player enter dungeon.
     model.enter();
-    System.out.println("here4");
     
-    view.addClickListener(this);
     view.refresh();
+    
+    view.show(model.playerLocation() + model.playerDescription());
+
   }
   
   @Override
   public void restart() {
     model.setBoard(prevLocations);
     model.setStartEnd(prevStart.getIndex(), prevEnd.getIndex());
+    model.enter();
     view.refresh();
   }
 
@@ -91,13 +95,21 @@ public class DungeonControllerImpl implements DungeonController {
         }
       }
     }
+    
+    if (this.isLoose()) {
+      view.show("Player is dead.\n" + model.playerDescription());
+    } else if (this.isWin()) {
+      view.show("Player win.\n" + model.playerDescription());
+    }
+    
     view.refresh();
-    view.show(model.playerLocation() + "\n\n" + model.playerDescription());
+    view.show(model.playerLocation() + model.playerDescription());
   }
 
   @Override
   public void pick() {
     model.pick();
+    view.show(model.playerLocation() + model.playerDescription());
   }
 
   @Override
@@ -112,6 +124,9 @@ public class DungeonControllerImpl implements DungeonController {
     } else if (monsterStatus == -1) {
       JOptionPane.showMessageDialog(null, "No monster here.\n");
     }
+    
+    view.show(model.playerLocation() + model.playerDescription());
+
   }
 
   @Override
@@ -127,11 +142,6 @@ public class DungeonControllerImpl implements DungeonController {
   @Override
   public boolean canShoot() {
     return model.getPlayer().getArrow() > 0;
-  }
-
-  @Override
-  public void handleCellClick(String direstion) {
-    this.move(direstion);
   }
 
 

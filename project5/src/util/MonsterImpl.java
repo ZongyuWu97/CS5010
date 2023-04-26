@@ -1,5 +1,11 @@
 package util;
 
+/**
+ * Implements the Monster interface.
+
+ * @author ZongyuWu
+ *
+ */
 public class MonsterImpl implements Monster {
   
   private int health;

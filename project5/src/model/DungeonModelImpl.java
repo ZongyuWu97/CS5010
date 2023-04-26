@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Stack;
-
 import util.Cave;
 import util.Location;
 import util.Monster;
@@ -179,7 +178,7 @@ public class DungeonModelImpl implements DungeonModel {
   @Override
   public void enter() {
     this.player = new PlayerImpl();
-    this.player.move(this.start);
+    this.move(this.start);
   }
 
   @Override
@@ -256,9 +255,12 @@ public class DungeonModelImpl implements DungeonModel {
     if (this.player == null) {
       throw new IllegalArgumentException("No player in this dungeon.");
     }
+    if (this.player.getLocation() != null) {
+      this.player.getLocation().setPlayerHere(false);
+    }
     this.player.move(location);
     location.setVisited();
-
+    location.setPlayerHere(true);
   }
 
   @Override
@@ -685,6 +687,9 @@ public class DungeonModelImpl implements DungeonModel {
 
   @Override
   public Location[][] getBoard() {
+    if (this.locations == null) {
+      return null;
+    }
     Location[][] res = new Location[row][col];
     for (int i = 0; i < locations.size(); i++) {
       res[i / col][i % col] = locations.get(i);

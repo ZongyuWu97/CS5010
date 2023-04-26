@@ -2,6 +2,12 @@ package view;
 
 import controller.DungeonController;
 
+/**
+ * Interface of the Dungeon view.
+
+ * @author ZongyuWu
+ *
+ */
 public interface DungeonView {
   
   /**

@@ -1,5 +1,11 @@
 package util;
 
+/**
+ * Interface for monster.
+
+ * @author ZongyuWu
+ *
+ */
 public interface Monster {
   
   /**
@@ -10,8 +16,9 @@ public interface Monster {
   public int getHealth();
   
   /**
-   * 
-   * @return
+   * Is dead or not.
+
+   * @return dead or not
    */
   public boolean isDead();
   

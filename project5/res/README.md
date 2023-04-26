@@ -37,14 +37,11 @@ Put the `dungeon.jar` file in the parent directory of `res/` folder. Double clic
 
 ## Example
 
-`Driver.java` -- `wrapping.txt`, `non-wrapping`:
-- Generate a dungeon with number of rows, columns, interconnectivity, and wrapping or non-wrapping.
-- Add treasures, arrows, monsters and player into the dungeon.
-- Player travel to different locations.
-- Report player description and location description at each step.
-- Player can shoot as many times as there are enough arrows.
-- Report final status when reached the end or dead.
-- Write all informations and result of each move to `output.txt`.
+- Type `wrapping`/`non-wrapping`, int `row`, int `col`, int `interconnectivity`, int `percentOfTreasure`, int `numMonster` then click `Generate` to start the game. Options are seperated by space.
+- Click `north`, `east`, `south`, or `west` to move. Can also type the direction then click `Move`.
+- Type `direction` and `distance` seperated by space then click `shoot` to shoot.
+- At each step, player and location information will be displayed on the text area.
+- Click `Exit` to exit the game.
 
 ## Design changes
 
@@ -56,11 +53,12 @@ Put the `dungeon.jar` file in the parent directory of `res/` folder. Double clic
 - Interconnectivity should be non-negative.
 - Percentage of treasure should be between 0 and 100.
 - Distance of shooting should be non negative.
-- Only one monster in one cave.
 
 ## Limitations
 
-All required functions are implemented.
+- Not support multi-player mode.
+- Not support restart with same random seed.
+- Not support command line mode.
 
 ## Citations
 

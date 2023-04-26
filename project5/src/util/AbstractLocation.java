@@ -22,6 +22,7 @@ public abstract class AbstractLocation implements Location {
   private boolean south = false;
   private boolean east = false;
   private boolean visited = false;
+  private boolean isHere = false;
   private int index;
   private final int row;
   private final int col;
@@ -183,6 +184,16 @@ public abstract class AbstractLocation implements Location {
   @Override
   public boolean isVisited() {
     return this.visited;
+  }
+  
+  @Override
+  public boolean isHere() {
+    return this.isHere;
+  }
+  
+  @Override
+  public void setPlayerHere(boolean here) {
+    this.isHere = here;
   }
 
 }

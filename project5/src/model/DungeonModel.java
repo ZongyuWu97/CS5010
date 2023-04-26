@@ -1,7 +1,6 @@
 package model;
 
 import java.util.HashMap;
-
 import util.Location;
 import util.Player;
 
@@ -207,7 +206,7 @@ public interface DungeonModel {
   public Location[][] getBoard();
   
   /**
-   * Reset the board
+   * Reset the board.
 
    * @param board board
    */
